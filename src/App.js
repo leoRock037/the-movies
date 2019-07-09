@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.scss';
+
+import SearchBar from './SearchBar';
 
 class App extends Component {
   render() {
     return (
-      <h1>The Movies</h1>
+      <Fragment>
+        <h1>The Movies</h1>
+        <SearchBar/>
+      </Fragment>
     );
   }
 }
