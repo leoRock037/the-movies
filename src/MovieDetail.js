@@ -25,11 +25,11 @@ class MovieDetail extends Component {
 
     return (
       <Fragment>
-        <button onClick={this.handleOpenModal}>Trigger Modal</button>
+        <button onClick={this.handleOpenModal}>Ver detalle</button>
         <ReactModal
           isOpen={this.state.showModal}
         >
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <button onClick={this.handle}>X</button>
           <h1>{movie.title}</h1>
           <p>{movie.overview}</p>
         </ReactModal>

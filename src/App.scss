@@ -1,1 +1,30 @@
-@import 'styles/base';
+// DEPENDENCIES
+@import "styles/dependencies/normalize.css";
+
+// VARIABLES
+@import "styles/variables/breakpoints";
+@import "styles/variables/colors";
+@import "styles/variables/fonts";
+
+// BASE
+@import "styles/base";
+
+// HELPERS
+@import "styles/helpers/mixins";
+@import "styles/helpers/responsive";
+@import "styles/helpers/alignments";
+
+// LAYOUT
+@import "styles/layout/grid";
+@import "styles/layout/navbar";
+@import "styles/layout/footer";
+@import "styles/layout/wrapper";
+
+// ATOMS
+@import "styles/atoms/boxes";
+@import "styles/atoms/links";
+@import "styles/atoms/titles";
+@import "styles/atoms/buttons";
+@import "styles/atoms/paragraph";
+
+// MOLECULES

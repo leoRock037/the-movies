@@ -1,0 +1,28 @@
+/*###########################################################################
+# BASE
+#############################################################################*/
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
