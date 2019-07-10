@@ -1,7 +1,5 @@
-.center-content {
-  @include display-flex;
+.align-middle-center {
   @include align-items(center);
-  @include justify-content(center);
 }
 
 .text-center {

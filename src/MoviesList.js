@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Movie         from './Movie';
 import ReactPaginate from 'react-paginate';
@@ -36,6 +36,10 @@ class MoviesList extends Component {
     }, () => {
       this.getMovies();
     });
+  }
+
+  activeCategory = (category) => {
+    return (category === this.state.category) ? 'filter-category active' : 'filter-category'
   }
 
   getMovies() {
@@ -76,19 +80,26 @@ class MoviesList extends Component {
           <div>Error: {error}</div>
         }
 
-        <div>
-          <button onClick={(e) => this.filterByCategory('popular')}>Popular</button>
-          <button onClick={(e) => this.filterByCategory('top_rated')}>Top Rated</button>
-          <button onClick={(e) => this.filterByCategory('upcoming')}>Upcoming</button>
-        </div>
-
         { (movies.total_results >= 0) &&
           <div className='elements-wrapper grid-block'>
+            {/* FILTERS */ }
+            <div className='span-sm-12 filters grid-block'>
+              <div className='span-sm-12 span-lg-4'>
+                Search Bar
+              </div>
+              <div className='span-sm-12 span-lg-8'>
+                <button className={this.activeCategory('popular')} onClick={(e) => this.filterByCategory('popular')}>Popular</button>
+                <button className={this.activeCategory('top_rated')}  onClick={(e) => this.filterByCategory('top_rated')}>Top Rated</button>
+                <button className={this.activeCategory('upcoming')}  onClick={(e) => this.filterByCategory('upcoming')}>Upcoming</button>
+              </div>
+            </div>
+
             {/* TITLE */ }
             <div className='span-sm-12 span-lg-4'>
               <h2>MOVIES</h2>
               <p>Find the best movies</p>
             </div>
+
             <div className='elements span-sm-12 span-lg-8'>
               {/* RESULTS */ }
               { movies.results.map((movie, index) => (

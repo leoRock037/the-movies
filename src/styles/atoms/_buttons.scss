@@ -2,3 +2,24 @@
 # BUTTONS
 #############################################################################*/
 
+button {
+  @include appearance(none);
+}
+
+button.filter-category {
+  text-transform: uppercase;
+  padding: 10px 0px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  color: gray;
+
+  &.active {
+    border-bottom: 2px solid $primary-yellow;
+    color: #000;
+  }
+
+  &:hover {
+    color: #000;
+  }
+}

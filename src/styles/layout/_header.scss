@@ -2,3 +2,57 @@
 # HEADER
 #############################################################################*/
 
+header.hero {
+  background-size: cover;
+  position: relative;
+  padding: 30px;
+  color: #fff;
+
+  @media(min-width: $breakpoint-medium) {
+    padding: 30px 60px;
+    min-height: 400px;
+  }
+
+  &:before {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    content: '';
+    z-index: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    color: $primary-yellow;
+    margin-bottom: 30px;
+
+    @media(min-width: $breakpoint-medium) {
+      margin-bottom: 40px;
+    }
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 0.9375rem;
+  }
+
+  p.vote-average {
+    font-size: 4.375rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p.date {
+    font-weight: bold;
+  }
+}

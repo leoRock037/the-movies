@@ -1,0 +1,15 @@
+/*###########################################################################
+# FILTERS
+#############################################################################*/
+
+.filters {
+  background-color: #fff;
+  margin-bottom: 30px;
+  position: sticky;
+  padding: 10px 0;
+  top: 0px;
+
+  button + button {
+    margin-left: 10px;
+  }
+}
