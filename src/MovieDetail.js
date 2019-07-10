@@ -3,6 +3,18 @@ import React, { Component, Fragment } from 'react';
 import ReactModal from 'react-modal';
 import close      from './images/close.svg';
 
+const customModalStyles = {
+  overlay: {
+    zIndex: 2
+  },
+  content : {
+    top    : '0%',
+    bottom : '0%',
+    left   : '0%',
+    right  : 'auto',
+  }
+};
+
 class MovieDetail extends Component {
   constructor () {
     super();
@@ -53,18 +65,23 @@ class MovieDetail extends Component {
         </div>
 
        {/* MODAL DETAILS */ }
-        <ReactModal isOpen={this.state.showModal}>
+        <ReactModal
+          style={customModalStyles}
+          isOpen={this.state.showModal}
+        >
           {/* CLOSE */ }
-          <img src={close} alt='X' onClick={this.handleCloseModal}/>
+          <img className='close-modal' src={close} alt='X' onClick={this.handleCloseModal}/>
 
           {/* DETAILS DATA */ }
-          <div className='grid-block details'>
+          <div className='grid-block movie-details'>
     
-            <img className='span-sm-12 span-md-3' src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
-            <div className='span-sm-12 span-md-9'>
+            <img className='span-sm-12 span-md-5' src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
+            <div className='span-sm-12 span-md-7'>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
-              <p>{movie.release_date}</p>
+              <p className='small'>{movie.release_date}</p>
+
+              <h2>Genres</h2>
               { details.genres &&
                 <ul>
                   { details.genres.map((genre, index) => (
@@ -73,12 +90,12 @@ class MovieDetail extends Component {
                   }
                 </ul>
               }
+              <h2>Production Companies</h2>
               { details.production_companies &&
-                <ul>
+                <ul className='companies'>
                   { details.production_companies.map((company, index) => (
                       <li key={index}>
-                        {company.name}
-                        <img src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} alt='logo'/>
+                        <img src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} alt={company.name}/>
                       </li>
                     ))
                   }

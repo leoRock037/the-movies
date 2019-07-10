@@ -1,0 +1,35 @@
+/*###########################################################################
+# MOVIE DETAILS
+#############################################################################*/
+
+.movie-details {
+  grid-gap: 30px;
+
+  img {
+    max-width: 100%;
+  }
+
+  h2 {
+    margin: 20px 0;
+  }
+
+  .companies {
+    @include display-flex;
+    @include align-items(center);
+
+    li {
+      margin-right: 30px;
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+}
+
+.close-modal {
+  display: block;
+  margin: 0 auto;
+  margin-right: 0px;
+}
+

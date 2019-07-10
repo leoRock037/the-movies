@@ -7,11 +7,12 @@ p {
   margin-top: 0;
 
   @media(min-width: $breakpoint-large) {
-  	font-size: 1.125rem;
+    font-size: 1.125rem;
   }
 }
 
 p.small {
+  font-size: 0.875rem;
 }
 
 p.big {
