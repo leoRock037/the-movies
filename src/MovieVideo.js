@@ -38,8 +38,8 @@ class MovieVideo extends Component {
     const { video } = this.state;
 
     const youtubeOptions = {
-      height: '400',
-      width: '600',
+      height: '250',
+      width: '400',
       playerVars: { 
         modestbranding: 0,
         showinfo: 0,

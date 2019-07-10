@@ -75,9 +75,19 @@ class MovieDetail extends Component {
 
           {/* DETAILS DATA */ }
           <div className='grid-block movie-details'>
-    
+
             <div className='span-sm-12 span-md-6'>
-              <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
+              <h1>{movie.title}</h1>
+              <p>{movie.overview}</p>
+              <p className='small'>{movie.release_date}</p>
+
+              {/* VIDEO */ }
+              <MovieVideo
+                apiKey={apiKey}
+                movieId={movie.id}
+              />
+            </div>
+            <div className='span-sm-12 span-md-6'>
               { details.genres &&
                 <Fragment>
                   <h2>Genres</h2>
@@ -102,17 +112,7 @@ class MovieDetail extends Component {
                   </ul>
                 </Fragment>
               }
-            </div>
-            <div className='span-sm-12 span-md-6'>
-              <h1>{movie.title}</h1>
-              <p>{movie.overview}</p>
-              <p className='small'>{movie.release_date}</p>
-
-              {/* VIDEO */ }
-              <MovieVideo
-                apiKey={apiKey}
-                movieId={movie.id}
-              />
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
             </div>
           </div>
         </ReactModal>

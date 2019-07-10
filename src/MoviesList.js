@@ -38,7 +38,7 @@ class MoviesList extends Component {
           breakLabel={'...'}
           pageCount={totalPages}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={2}
           onPageChange={handlePageClick}
           containerClassName={'paginator'}
           activeClassName={'active'}

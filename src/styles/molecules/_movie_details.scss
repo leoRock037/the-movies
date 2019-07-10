@@ -9,6 +9,10 @@
     max-width: 100%;
   }
 
+  p {
+   line-height: 1.4;
+  }
+
   h2 {
     margin: 20px 0;
   }
@@ -16,6 +20,7 @@
   .companies {
     @include display-flex;
     @include align-items(center);
+    margin-bottom: 30px;
 
     li {
       margin-right: 30px;
