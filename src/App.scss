@@ -21,12 +21,16 @@
 
 // ATOMS
 @import "styles/atoms/links";
+@import "styles/atoms/labels";
+@import "styles/atoms/inputs";
 @import "styles/atoms/titles";
 @import "styles/atoms/buttons";
 @import "styles/atoms/paragraph";
 
 // MOLECULES
+@import "styles/molecules/forms";
 @import "styles/molecules/filters";
 @import "styles/molecules/paginator";
 @import "styles/molecules/movie_details";
+@import "styles/molecules/button_collections";
 @import "styles/molecules/element_collections";

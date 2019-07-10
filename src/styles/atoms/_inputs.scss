@@ -1,0 +1,18 @@
+/*###########################################################################
+# INPUTS
+#############################################################################*/
+
+input {
+ border: 1px solid #c1c1c1;
+ border-radius: 6px;
+ margin: 0 0 0 10px;
+ box-shadow: none;
+ padding: 10px;
+ height: 40px;
+ width: 100%;
+
+ @media(min-width: $breakpoint-medium) {
+   margin: 0px 30px 0 15px;
+ }
+}
+

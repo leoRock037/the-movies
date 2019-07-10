@@ -4,12 +4,16 @@
 
 .elements-wrapper {
   background-color: #fff;
-  padding: 30px 30px 50px;
+  padding: 10px 15px 30px;
   margin: 30px 0;
+
+  @media(min-width: $breakpoint-medium) {
+    padding: 30px 30px 50px;
+  }
 
   .elements {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
+    grid-gap: 15px;
     display: grid;
 
     img {
@@ -17,11 +21,16 @@
     }
 
     @media(min-width: $breakpoint-medium) {
+      grid-gap: 30px;
       grid-template-columns: repeat(4, 1fr);
     }
 
     @media(min-width: $breakpoint-large) {
       grid-template-columns: repeat(5, 1fr);
+    }
+
+    > div {
+      cursor: pointer;
     }
   }
 }

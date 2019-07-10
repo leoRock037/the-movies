@@ -1,12 +1,14 @@
 /*###########################################################################
-# WRAPPER
+# FORMS
 #############################################################################*/
 
-// Section Wrapper
-section.wrapper {
-  margin: 0 15px;
+.search-form {
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include display-flex;
+  padding: 10px 0;
 
   @media(min-width: $breakpoint-medium) {
-    margin: 0 60px;
+    padding: 0;
   }
 }

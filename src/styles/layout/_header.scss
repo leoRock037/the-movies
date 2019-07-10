@@ -55,4 +55,15 @@ header.hero {
   p.date {
     font-weight: bold;
   }
+
+  img {
+    max-width: 80px;
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+  }
 }

@@ -1,0 +1,18 @@
+/*###########################################################################
+# BUTTON COLLECTIONAS
+#############################################################################*/
+
+.category-button-collection {
+  @include justify-content(space-evenly);
+  @include display-flex;
+  flex-wrap: wrap;
+
+  @media(min-width: $breakpoint-medium) {
+    @include justify-content(normal);
+
+    button + button {
+      margin-left: 25px;
+    }
+  }
+
+}

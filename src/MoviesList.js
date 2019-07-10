@@ -13,7 +13,8 @@ class MoviesList extends Component {
       isLoaded: false,
       category: 'popular',
       movies: [],
-      page: 1
+      page: 1,
+      filterText: ''
     }
   }
 
@@ -36,6 +37,10 @@ class MoviesList extends Component {
     }, () => {
       this.getMovies();
     });
+  }
+
+  handleChangeFilterText = (event) => {
+    this.setState({filterText: event.target.value});
   }
 
   activeCategory = (category) => {
@@ -68,6 +73,9 @@ class MoviesList extends Component {
       isLoaded,
     } = this.state;
 
+    let results = movies.results || []
+    let searched_movies = results.filter((movie) => (movie.title.toLowerCase().indexOf(this.state.filterText.toLowerCase()) !== -1));
+
     return (
       <section className='wrapper'>
         {/* LOADING */ }
@@ -84,10 +92,11 @@ class MoviesList extends Component {
           <div className='elements-wrapper grid-block'>
             {/* FILTERS */ }
             <div className='span-sm-12 filters grid-block'>
-              <div className='span-sm-12 span-lg-4'>
-                Search Bar
+              <div className='span-sm-12 span-lg-4 search-form'>
+                <label>Search</label>
+                <input type='text' value={this.state.filterText} onChange={this.handleChangeFilterText} placeholder='by movie title'/>
               </div>
-              <div className='span-sm-12 span-lg-8'>
+              <div className='span-sm-12 span-lg-8 category-button-collection'>
                 <button className={this.activeCategory('popular')} onClick={(e) => this.filterByCategory('popular')}>Popular</button>
                 <button className={this.activeCategory('top_rated')}  onClick={(e) => this.filterByCategory('top_rated')}>Top Rated</button>
                 <button className={this.activeCategory('upcoming')}  onClick={(e) => this.filterByCategory('upcoming')}>Upcoming</button>
@@ -103,13 +112,17 @@ class MoviesList extends Component {
             <div className='span-sm-12 span-lg-8'>
               {/* RESULTS */ }
               <div className='elements'>
-                { movies.results.map((movie, index) => (
+                { searched_movies.map((movie, index) => (
                   <Movie
                     key={index}
                     movie={movie}
                   />
                 ))}
               </div>
+
+              { (searched_movies.length === 0) &&
+                <p className='text-center'>There are no results related to your search</p>
+              }
 
               {/* PAGINATION */ }
               <ReactPaginate
@@ -128,9 +141,6 @@ class MoviesList extends Component {
           </div>
         }
 
-        { (movies.total_results === 0) &&
-          <h1>No Existen resultados</h1>
-        }
       </section>
     );
   }

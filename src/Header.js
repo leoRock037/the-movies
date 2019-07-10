@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
+import Movie         from './Movie';
+
 class Header extends Component {
   constructor(props) {
     super(props)
@@ -42,14 +44,18 @@ class Header extends Component {
           <header className='hero' style={headerStyles}>
             <h1>The Movies</h1>
             <div className='grid-block align-middle-center'>
-              <div className='span-sm-12 span-md-7'>
+              <div className='span-sm-12 span-md-6'>
                 <p className='vote-average'>{trending_movie.vote_average}</p>
                 <h3>Vote Average</h3>
               </div>
-              <div className='span-sm-12 span-md-5'>
+              <div className='span-sm-12 span-md-6'>
                 <h2>{trending_movie.original_title}</h2>
                 <p>{trending_movie.overview}</p>
                 <p className='date'>{trending_movie.release_date}</p>
+                <Movie
+                  onHeader={true}
+                  movie={trending_movie}
+                />
               </div>
             </div>
           </header>

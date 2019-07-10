@@ -81,25 +81,29 @@ class MovieDetail extends Component {
               <p>{movie.overview}</p>
               <p className='small'>{movie.release_date}</p>
 
-              <h2>Genres</h2>
               { details.genres &&
-                <ul>
-                  { details.genres.map((genre, index) => (
-                      <li key={index}>{genre.name}</li>
-                    ))
-                  }
-                </ul>
+                <Fragment>
+                  <h2>Genres</h2>
+                  <ul>
+                    { details.genres.map((genre, index) => (
+                        <li key={index}>{genre.name}</li>
+                      ))
+                    }
+                  </ul>
+                </Fragment>
               }
-              <h2>Production Companies</h2>
               { details.production_companies &&
-                <ul className='companies'>
-                  { details.production_companies.map((company, index) => (
-                      <li key={index}>
-                        <img src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} alt={company.name}/>
-                      </li>
-                    ))
-                  }
-                </ul>
+                <Fragment>
+                  <h2>Production Companies</h2>
+                  <ul className='companies'>
+                    { details.production_companies.map((company, index) => (
+                        <li key={index}>
+                          <img src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`} alt={company.name}/>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </Fragment>
               }
             </div>
           </div>
