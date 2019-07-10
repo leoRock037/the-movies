@@ -1,0 +1,28 @@
+/*###########################################################################
+# PAGINATOR
+#############################################################################*/
+
+.paginator {
+  @include justify-content(center);
+  @include align-items(center);
+  @include display-flex;
+  margin: 30px 0;
+
+  li {
+    cursor: pointer;
+    padding: 10px;
+    
+    a {
+      outline: none;
+
+      &:hover {
+        color: $primary-yellow;
+      }
+    }
+
+    &.active a {
+      color: $primary-yellow;
+      font-weight: bold;
+    }
+  }
+}

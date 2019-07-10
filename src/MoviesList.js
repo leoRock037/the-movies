@@ -100,27 +100,27 @@ class MoviesList extends Component {
               <p>Find the best movies</p>
             </div>
 
-            <div className='elements span-sm-12 span-lg-8'>
+            <div className='span-sm-12 span-lg-8'>
               {/* RESULTS */ }
-              { movies.results.map((movie, index) => (
-                <Movie
-                  key={index}
-                  movie={movie}
-                />
-              ))}
+              <div className='elements'>
+                { movies.results.map((movie, index) => (
+                  <Movie
+                    key={index}
+                    movie={movie}
+                  />
+                ))}
+              </div>
 
               {/* PAGINATION */ }
               <ReactPaginate
                 previousLabel={'previous'}
                 nextLabel={'next'}
                 breakLabel={'...'}
-                breakClassName={'break-me'}
                 pageCount={movies.total_pages}
                 marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
+                pageRangeDisplayed={3}
                 onPageChange={this.handlePageClick}
-                containerClassName={'pagination'}
-                subContainerClassName={'pages pagination'}
+                containerClassName={'paginator'}
                 activeClassName={'active'}
               />
 
