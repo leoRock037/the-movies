@@ -42,7 +42,9 @@ class Header extends Component {
       <Fragment>
         { trending_movie && 
           <header className='hero' style={headerStyles}>
+            {/* PAGE TITLE */ }
             <h1>The Movies</h1>
+            {/* TRENDING MOVIE */ }
             <div className='grid-block align-middle-center'>
               <div className='span-sm-12 span-md-6'>
                 <p className='vote-average'>{trending_movie.vote_average}</p>
@@ -52,6 +54,7 @@ class Header extends Component {
                 <h2>{trending_movie.original_title}</h2>
                 <p>{trending_movie.overview}</p>
                 <p className='date'>{trending_movie.release_date}</p>
+                {/* DETAILS */ }
                 <Movie
                   onHeader={true}
                   movie={trending_movie}
