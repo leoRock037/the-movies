@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import ReactModal from 'react-modal';
+import MovieVideo from './MovieVideo';
 import close      from './images/close.svg';
 
 const customModalStyles = {
@@ -75,12 +76,8 @@ class MovieDetail extends Component {
           {/* DETAILS DATA */ }
           <div className='grid-block movie-details'>
     
-            <img className='span-sm-12 span-md-5' src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
-            <div className='span-sm-12 span-md-7'>
-              <h1>{movie.title}</h1>
-              <p>{movie.overview}</p>
-              <p className='small'>{movie.release_date}</p>
-
+            <div className='span-sm-12 span-md-6'>
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.media_type}/>
               { details.genres &&
                 <Fragment>
                   <h2>Genres</h2>
@@ -105,6 +102,12 @@ class MovieDetail extends Component {
                   </ul>
                 </Fragment>
               }
+            </div>
+            <div className='span-sm-12 span-md-6'>
+              <h1>{movie.title}</h1>
+              <p>{movie.overview}</p>
+              <p className='small'>{movie.release_date}</p>
+              <MovieVideo movieId={movie.id}/>
             </div>
           </div>
         </ReactModal>
