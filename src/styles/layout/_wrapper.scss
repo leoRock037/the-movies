@@ -4,4 +4,9 @@
 
 // Section Wrapper
 section.wrapper {
+  margin: 0 30px;
+
+  @media(min-width: $breakpoint-medium) {
+    margin: 0 60px;
+  }
 }

@@ -9,11 +9,10 @@ class Movie extends Component {
     } = this.props;
 
     return (
-      <li>
-        <h1>{movie.title}</h1>
+      <MovieDetail movie={movie}>
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie"/>
-        <MovieDetail movie={movie} />
-      </li>
+        <h3>{movie.title}</h3>
+      </MovieDetail>
     );
   }
 }

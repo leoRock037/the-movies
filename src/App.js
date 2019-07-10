@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import './App.scss';
 
-import SearchBar from './SearchBar';
+import MoviesList from './MoviesList';
 
 class App extends Component {
   render() {
     return (
       <Fragment>
         <h1>The Movies</h1>
-        <SearchBar/>
+        <MoviesList/>
       </Fragment>
     );
   }
