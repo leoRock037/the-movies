@@ -6,11 +6,15 @@ class Movie extends Component {
   render() {
     const {
       movie,
+      apiKey,
       onHeader
     } = this.props;
 
     return (
-      <MovieDetail movie={movie}>
+      <MovieDetail
+        movie={movie}
+        apiKey={apiKey}
+      >
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie"/>
         { onHeader && <span>See Details</span>}
         { !onHeader && <h3>{movie.title}</h3> }

@@ -9,6 +9,7 @@ class MoviesList extends Component {
 
     const {
       movies,
+      apiKey,
       totalPages,
       handlePageClick
     } = this.props;
@@ -20,6 +21,7 @@ class MoviesList extends Component {
           { movies.map((movie, index) => (
             <Movie
               key={index}
+              apiKey={apiKey}
               movie={movie}
             />
           ))}

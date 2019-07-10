@@ -15,13 +15,15 @@ class MovieVideo extends Component {
   }
 
   getMovieVideos() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}/videos?api_key=d181194012eeff3813b275e5fddc75d4&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}/videos?api_key=${this.props.apiKey}&language=en-US`)
       .then(res => res.json())
       .then(
         (response) => {
-          this.setState({
-            video: response.results[0]
-          });
+          if (response.results) {
+            this.setState({
+              video: response.results[0]
+            });
+          }
         },
         (error) => {
           this.setState({

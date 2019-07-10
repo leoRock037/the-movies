@@ -47,7 +47,7 @@ class MoviesWrapper extends Component {
   }
 
   getMovies() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.category}?api_key=d181194012eeff3813b275e5fddc75d4&page=${this.state.page}`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.category}?api_key=${this.props.apiKey}&page=${this.state.page}`)
       .then(res => res.json())
       .then(
         (response) => {
@@ -71,6 +71,10 @@ class MoviesWrapper extends Component {
       movies,
       isLoaded,
     } = this.state;
+
+    const {
+      apiKey
+    } = this.props
 
     let results = movies.results || []
     let searched_movies = results.filter((movie) => (movie.title.toLowerCase().indexOf(this.state.filterText.toLowerCase()) !== -1));
@@ -109,6 +113,7 @@ class MoviesWrapper extends Component {
             </div>
 
             <MoviesList 
+              apiKey={apiKey}
               movies={searched_movies}
               totalPages={movies.total_pages}
               handlePageClick={this.handlePageClick}

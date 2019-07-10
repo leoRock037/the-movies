@@ -38,7 +38,7 @@ class MovieDetail extends Component {
   }
 
   getMovieDetails() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=d181194012eeff3813b275e5fddc75d4&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=${this.props.apiKey}&language=en-US`)
       .then(res => res.json())
       .then(
         (response) => {
@@ -56,8 +56,8 @@ class MovieDetail extends Component {
 
   render() {
 
-    const { movie } = this.props;
     const { details } = this.state;
+    const { movie, apiKey } = this.props;
 
     return (
       <Fragment>
@@ -107,7 +107,12 @@ class MovieDetail extends Component {
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
               <p className='small'>{movie.release_date}</p>
-              <MovieVideo movieId={movie.id}/>
+
+              {/* VIDEO */ }
+              <MovieVideo
+                apiKey={apiKey}
+                movieId={movie.id}
+              />
             </div>
           </div>
         </ReactModal>

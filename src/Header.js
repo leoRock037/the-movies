@@ -12,7 +12,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=d181194012eeff3813b275e5fddc75d4`)
+    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${this.props.apiKey}`)
       .then(res => res.json())
       .then(
         (response) => {
