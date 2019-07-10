@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import Movie from './Movie';
+import Movie         from './Movie';
+import ReactPaginate from 'react-paginate';
 
 class MoviesList extends Component {
 
@@ -11,7 +12,8 @@ class MoviesList extends Component {
       error: null,
       isLoaded: false,
       category: 'popular',
-      movies: []
+      movies: [],
+      page: 1
     }
   }
 
@@ -21,15 +23,23 @@ class MoviesList extends Component {
 
   filterByCategory = (category) => {
     this.setState({
-      category: category
+      category: category,
+      page: 1
+    }, () => {
+      this.getMovies();
+    });
+  }
+
+  handlePageClick = (page) => {
+    this.setState({
+      page: page.selected + 1
     }, () => {
       this.getMovies();
     });
   }
 
   getMovies() {
-    console.log(this.state.category)
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.category}?api_key=d181194012eeff3813b275e5fddc75d4&page=1`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.category}?api_key=d181194012eeff3813b275e5fddc75d4&page=${this.state.page}`)
       .then(res => res.json())
       .then(
         (response) => {
@@ -67,28 +77,43 @@ class MoviesList extends Component {
         }
 
         <div>
-        <button onClick={(e) => this.filterByCategory('popular')}>Popular</button>
-        <button onClick={(e) => this.filterByCategory('top_rated')}>Top Rated</button>
-        <button onClick={(e) => this.filterByCategory('upcoming')}>Upcoming</button>
+          <button onClick={(e) => this.filterByCategory('popular')}>Popular</button>
+          <button onClick={(e) => this.filterByCategory('top_rated')}>Top Rated</button>
+          <button onClick={(e) => this.filterByCategory('upcoming')}>Upcoming</button>
         </div>
 
         { (movies.total_results >= 0) &&
           <div className='elements-wrapper grid-block'>
             {/* TITLE */ }
-            <div className='span-sm-12 span-md-4'>
+            <div className='span-sm-12 span-lg-4'>
               <h2>MOVIES</h2>
               <p>Find the best movies</p>
             </div>
-            {/* RESULTS */ }
-            <div className='elements span-sm-12 span-md-8'>
+            <div className='elements span-sm-12 span-lg-8'>
+              {/* RESULTS */ }
               { movies.results.map((movie, index) => (
                 <Movie
                   key={index}
                   movie={movie}
                 />
               ))}
-            </div>
 
+              {/* PAGINATION */ }
+              <ReactPaginate
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={movies.total_pages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={this.handlePageClick}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'active'}
+              />
+
+            </div>
           </div>
         }
 
